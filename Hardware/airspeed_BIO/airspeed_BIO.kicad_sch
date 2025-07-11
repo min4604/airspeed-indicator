@@ -1,0 +1,20 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "6ddcf4fe-9e51-4114-8222-5fc3f810c12a")
+	(paper "A4")
+	(title_block
+		(title "airspeed top")
+		(date "2025-07-11")
+		(rev "V1.0")
+		(comment 1 "design by Chen")
+	)
+	(lib_symbols)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
