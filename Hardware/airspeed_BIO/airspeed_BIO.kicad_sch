@@ -11,6 +11,90 @@
 		(comment 1 "design by Chen")
 	)
 	(lib_symbols)
+	(sheet
+		(at 95.25 41.91)
+		(size 30.48 78.74)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "679a9433-c527-4736-baca-b3e5544bf971")
+		(property "Sheetname" "connector"
+			(at 95.25 41.1984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "connector.kicad_sch"
+			(at 95.25 121.2346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "airspeed_BIO"
+				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 43.18 43.18)
+		(size 31.75 19.05)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "e6ebb58c-ec59-4ef0-bd77-5233a607af47")
+		(property "Sheetname" "power"
+			(at 43.18 42.4684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 43.18 62.8146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "airspeed_BIO"
+				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a"
+					(page "2")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")

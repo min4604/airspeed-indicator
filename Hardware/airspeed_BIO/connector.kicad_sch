@@ -1,0 +1,14 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "a9c47423-70db-4d37-8626-4583f74aca7f")
+	(paper "A4")
+	(title_block
+		(title "All connecter")
+		(date "2025-07-11")
+		(rev "V1.0")
+		(comment 1 "design by Chen")
+	)
+	(lib_symbols)
+)
