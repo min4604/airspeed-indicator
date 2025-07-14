@@ -11,6 +11,16 @@
 		(comment 1 "design by Chen")
 	)
 	(lib_symbols)
+	(bus
+		(pts
+			(xy 74.93 48.26) (xy 95.25 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2daff598-9a59-43d9-8be8-3e5a576f1d4e")
+	)
 	(sheet
 		(at 95.25 41.91)
 		(size 30.48 78.74)
@@ -43,6 +53,16 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "USB{VBUS,D+,D-}" output
+			(at 95.25 48.26 180)
+			(uuid "12e75ef8-a5a5-4928-b852-8d0b7cf50557")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
@@ -85,6 +105,16 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "USB{VBUS,D+,D-}" input
+			(at 74.93 48.26 0)
+			(uuid "755e992b-9c18-44ff-8315-c46646226a42")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
