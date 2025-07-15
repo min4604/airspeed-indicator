@@ -482,7 +482,11 @@
       "version": 4
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "Net-(J3-In)": [
+        "RF-50"
+      ]
+    },
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -624,6 +628,18 @@
     [
       "679a9433-c527-4736-baca-b3e5544bf971",
       "connector"
+    ],
+    [
+      "aad544ae-2766-4738-957f-ae2f642f67f5",
+      "sensor"
+    ],
+    [
+      "ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf",
+      "MCU"
+    ],
+    [
+      "bc5e8fae-35c8-4595-bef2-c7c6a3d6b7bb",
+      "radio"
     ]
   ],
   "text_variables": {}

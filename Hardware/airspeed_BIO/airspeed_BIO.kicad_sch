@@ -8,9 +8,30 @@
 		(title "airspeed top")
 		(date "2025-07-11")
 		(rev "V1.0")
+		(company "Taipei Tech Racing")
 		(comment 1 "design by Chen")
 	)
 	(lib_symbols)
+	(bus
+		(pts
+			(xy 153.67 74.93) (xy 153.67 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09bdbfbe-8f4c-4f0f-82da-9e98901d85a3")
+	)
+	(bus
+		(pts
+			(xy 147.32 111.76) (xy 147.32 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "24ce799c-e915-493a-af1d-c9d810946d0e")
+	)
 	(bus
 		(pts
 			(xy 74.93 48.26) (xy 95.25 48.26)
@@ -20,6 +41,106 @@
 			(type default)
 		)
 		(uuid "2daff598-9a59-43d9-8be8-3e5a576f1d4e")
+	)
+	(bus
+		(pts
+			(xy 156.21 111.76) (xy 147.32 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47115618-159c-442d-8fc1-32d4ff85e71c")
+	)
+	(bus
+		(pts
+			(xy 147.32 87.63) (xy 156.21 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49799f14-3bef-4e4e-ac8a-980e3d51a418")
+	)
+	(wire
+		(pts
+			(xy 156.21 90.17) (xy 151.13 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62fb9c93-f049-4a29-9c17-9548bb9b3409")
+	)
+	(bus
+		(pts
+			(xy 156.21 74.93) (xy 153.67 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "762fa79f-a3fb-4f63-8d92-9e75b2a48f27")
+	)
+	(bus
+		(pts
+			(xy 125.73 78.74) (xy 156.21 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7af16381-37e3-4cff-ac85-2db3b3cab3c7")
+	)
+	(bus
+		(pts
+			(xy 125.73 83.82) (xy 156.21 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a74d32f3-ab08-4942-b0e8-7cfe87c143c1")
+	)
+	(bus
+		(pts
+			(xy 153.67 55.88) (xy 156.21 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c49dd945-6439-4330-a95a-8d9ff310d550")
+	)
+	(wire
+		(pts
+			(xy 151.13 107.95) (xy 156.21 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "daf18071-2424-425f-a90f-da3ada7da6dc")
+	)
+	(wire
+		(pts
+			(xy 125.73 81.28) (xy 156.21 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f27f3d2f-05d7-427a-bf03-15024a9e5617")
+	)
+	(wire
+		(pts
+			(xy 151.13 90.17) (xy 151.13 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fea13742-7fd6-44f6-afda-b2b7fe5d851b")
 	)
 	(sheet
 		(at 95.25 41.91)
@@ -65,10 +186,256 @@
 				(justify left)
 			)
 		)
+		(pin "USART1{TX,RX}" bidirectional
+			(at 125.73 83.82 0)
+			(uuid "26981898-3185-44b0-9e1a-436940873fc7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "NRST" bidirectional
+			(at 125.73 81.28 0)
+			(uuid "8f6ef9b1-b08e-466c-9778-bcfee9e2a3e0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SYS{SWDIO,SWCLK}" bidirectional
+			(at 125.73 78.74 0)
+			(uuid "fbee35fd-744d-4aaa-bd43-f90d5ceaf5b0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a"
 					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 156.21 41.91)
+		(size 24.13 17.78)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "aad544ae-2766-4738-957f-ae2f642f67f5")
+		(property "Sheetname" "sensor"
+			(at 156.21 41.1984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensor.kicad_sch"
+			(at 156.21 60.2746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "I2C1{SDA,SCL}" bidirectional
+			(at 156.21 55.88 180)
+			(uuid "9966446a-7dc6-422e-b6e6-4cd7aee21da2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "airspeed_BIO"
+				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 156.21 71.12)
+		(size 24.13 21.59)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf")
+		(property "Sheetname" "MCU"
+			(at 156.21 70.4084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "MCU.kicad_sch"
+			(at 156.21 93.2946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "NRST" bidirectional
+			(at 156.21 81.28 180)
+			(uuid "999f4700-a5a5-480a-a334-8ba460f49441")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SYS{SWDIO,SWCLK}" bidirectional
+			(at 156.21 78.74 180)
+			(uuid "92bcd974-ffdf-4351-88a7-452315122c9c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USART1{TX,RX}" bidirectional
+			(at 156.21 83.82 180)
+			(uuid "789f3eb7-7c9d-4092-9ff3-c1f9bc6a1435")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "I2C1{SDA,SCL}" bidirectional
+			(at 156.21 74.93 180)
+			(uuid "b75e8605-8f51-4f27-9fd9-6248e9af36b3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USART2{TX,RX,CTS,RTS}" bidirectional
+			(at 156.21 87.63 180)
+			(uuid "3111a2da-845a-4a78-8989-43bc88241dc9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "~{DATA_IND}" input
+			(at 156.21 90.17 180)
+			(uuid "69348015-9a98-4140-bcd2-3e6ede27de5e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "airspeed_BIO"
+				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 156.21 104.14)
+		(size 31.75 15.24)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "bc5e8fae-35c8-4595-bef2-c7c6a3d6b7bb")
+		(property "Sheetname" "radio"
+			(at 156.21 103.4284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "radio.kicad_sch"
+			(at 156.21 119.9646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "~{DATA_IND}" output
+			(at 156.21 107.95 180)
+			(uuid "ee4f9c00-32e1-4998-8919-bc14fd879222")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USART2{TX,RX,CTS,RTS}" bidirectional
+			(at 156.21 111.76 180)
+			(uuid "c1afdde7-a419-461c-b241-fda052dc632d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "airspeed_BIO"
+				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a"
+					(page "6")
 				)
 			)
 		)
@@ -110,6 +477,26 @@
 		(pin "USB{VBUS,D+,D-}" input
 			(at 74.93 48.26 0)
 			(uuid "755e992b-9c18-44ff-8315-c46646226a42")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BATT" output
+			(at 74.93 52.07 0)
+			(uuid "88dd26a2-565e-4fec-9e80-d79c7c81936d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "EN_power" input
+			(at 74.93 55.88 0)
+			(uuid "4d08ab25-1326-41c6-a8bb-8bb48456193b")
 			(effects
 				(font
 					(size 1.27 1.27)
