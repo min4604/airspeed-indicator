@@ -42,6 +42,16 @@
 		)
 		(uuid "2daff598-9a59-43d9-8be8-3e5a576f1d4e")
 	)
+	(wire
+		(pts
+			(xy 74.93 58.42) (xy 95.25 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40e77354-dff9-4842-b28e-cc09a5f73bd6")
+	)
 	(bus
 		(pts
 			(xy 156.21 111.76) (xy 147.32 111.76)
@@ -72,6 +82,16 @@
 		)
 		(uuid "62fb9c93-f049-4a29-9c17-9548bb9b3409")
 	)
+	(wire
+		(pts
+			(xy 74.93 52.07) (xy 95.25 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "654005c2-3384-4455-bfba-c5507bf7320f")
+	)
 	(bus
 		(pts
 			(xy 156.21 74.93) (xy 153.67 74.93)
@@ -91,6 +111,16 @@
 			(type default)
 		)
 		(uuid "7af16381-37e3-4cff-ac85-2db3b3cab3c7")
+	)
+	(wire
+		(pts
+			(xy 74.93 55.88) (xy 95.25 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "957d2d6d-c498-4320-863b-f0c4539d6238")
 	)
 	(bus
 		(pts
@@ -214,6 +244,36 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "BATT" output
+			(at 95.25 52.07 180)
+			(uuid "9725b0dd-712b-4b02-81bc-ee087fd0daa1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "EN_power" output
+			(at 95.25 55.88 180)
+			(uuid "fb3a6624-ae88-49f3-89e6-bc51b99382a6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "VCCmp" input
+			(at 95.25 58.42 180)
+			(uuid "252c8719-72d1-4b73-a5fc-8e42b8e61d4a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
@@ -496,7 +556,17 @@
 		)
 		(pin "EN_power" input
 			(at 74.93 55.88 0)
-			(uuid "4d08ab25-1326-41c6-a8bb-8bb48456193b")
+			(uuid "ec822a73-748f-43f1-9b6d-03241faadc09")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "VCCpm" output
+			(at 74.93 58.42 0)
+			(uuid "9d874282-d095-4b1f-8fc9-d10dea87d397")
 			(effects
 				(font
 					(size 1.27 1.27)

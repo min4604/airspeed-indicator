@@ -994,6 +994,263 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:Thermistor_NTC"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TH"
+				(at -4.445 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Thermistor_NTC"
+				(at 3.175 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Temperature dependent resistor, negative temperature coefficient"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "thermistor NTC resistor sensor RTD"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*NTC* *Thermistor* PIN?ARRAY* bornier* *Terminal?Block* R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Thermistor_NTC_0_1"
+				(arc
+					(start -3.175 2.413)
+					(mid -3.0506 2.3165)
+					(end -3.048 2.159)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -3.048 2.794)
+					(mid -2.9736 2.9736)
+					(end -2.794 3.048)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.794 3.048)
+					(mid -2.6144 2.9736)
+					(end -2.54 2.794)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.794 2.54)
+					(mid -2.9736 2.6144)
+					(end -3.048 2.794)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.794 1.905)
+					(mid -2.9736 1.9794)
+					(end -3.048 2.159)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 2.159)
+					(mid -2.6144 1.9794)
+					(end -2.794 1.905)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.159 2.794)
+					(mid -2.434 2.5608)
+					(end -2.794 2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 2.159) (xy -2.54 2.794)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -3.683) (xy -2.54 -1.397) (xy -2.794 -2.159) (xy -2.286 -2.159) (xy -2.54 -1.397) (xy -2.54 -1.651)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.54) (xy -1.778 1.524) (xy 1.778 -1.524) (xy 1.778 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -1.397) (xy -1.778 -3.683) (xy -2.032 -2.921) (xy -1.524 -2.921) (xy -1.778 -3.683)
+						(xy -1.778 -3.429)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -1.016 2.54)
+					(end 1.016 -2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Thermistor_NTC_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "TTR:LDL1117S33R"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1203,7 +1460,7 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin input line
 					(at -17.78 8.89 0)
 					(length 2.54)
 					(name "PWIN"
@@ -1348,7 +1605,25 @@
 					)
 				)
 				(pin input line
-					(at 3.81 -19.05 90)
+					(at 3.81 -25.4 90)
+					(length 2.54)
+					(name "PGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 3.81 -25.4 90)
 					(length 2.54)
 					(hide yes)
 					(name "PGND"
@@ -1367,7 +1642,7 @@
 					)
 				)
 				(pin input line
-					(at 3.81 -19.05 90)
+					(at 3.81 -25.4 90)
 					(length 2.54)
 					(hide yes)
 					(name "PGND"
@@ -1378,24 +1653,6 @@
 						)
 					)
 					(number "24"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 3.81 -25.4 90)
-					(length 2.54)
-					(name "PGND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1917,8 +2174,12 @@
 		)
 		(symbol "power:+3V3"
 			(power)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2018,8 +2279,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+3V3"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2387,9 +2647,9 @@
 		)
 		(uuid "322a8e73-0775-462c-80a0-22f2acddb65f")
 	)
-	(text "ISET NEED SET o"
+	(text "R ISET\n120K  charge CC 1000mA\n60.4K charge CC 1987mA\n47.5K charge CC 2525mA"
 		(exclude_from_sim no)
-		(at 181.356 138.43 0)
+		(at 192.278 133.858 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2397,7 +2657,7 @@
 		)
 		(uuid "3fa14c1a-14bf-45c3-93ab-aa40e8aacfc2")
 	)
-	(text "RILIM_3000\n3A"
+	(text "RILIM\n1.5A"
 		(exclude_from_sim no)
 		(at 87.884 124.968 0)
 		(effects
@@ -2416,6 +2676,26 @@
 			)
 		)
 		(uuid "8df8fc68-492f-49fc-b764-0f6a0454d77d")
+	)
+	(text "2.083A"
+		(exclude_from_sim no)
+		(at 151.384 63.754 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9119b6e8-58bd-403c-aa87-dbe41ec62a10")
+	)
+	(text "reserved"
+		(exclude_from_sim no)
+		(at 240.792 107.696 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "983e66f0-235f-4c9f-9e3a-7e8766cccf0d")
 	)
 	(junction
 		(at 156.21 29.21)
@@ -2894,6 +3174,16 @@
 	)
 	(wire
 		(pts
+			(xy 232.41 101.6) (xy 232.41 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ab35c7c-7c2a-4eae-8650-d024e0d7d852")
+	)
+	(wire
+		(pts
 			(xy 201.93 45.72) (xy 196.85 45.72)
 		)
 		(stroke
@@ -3061,6 +3351,16 @@
 			(type default)
 		)
 		(uuid "4cb83454-0617-43aa-9af0-1d0be27e2f0a")
+	)
+	(wire
+		(pts
+			(xy 236.22 101.6) (xy 232.41 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d162766-528d-4903-a978-e6ac1e2231a6")
 	)
 	(wire
 		(pts
@@ -3744,6 +4044,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 101.6) (xy 250.19 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aeabedff-c9ed-48f1-89bf-5ab35c7d9c12")
+	)
+	(wire
+		(pts
 			(xy 50.8 80.01) (xy 50.8 83.82)
 		)
 		(stroke
@@ -4392,6 +4702,16 @@
 		)
 		(uuid "4acc5f12-1c56-4014-95c9-fd58d5339fb1")
 	)
+	(label "NTC"
+		(at 167.64 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "65e37889-9bdb-4dea-a219-bb0be96df26c")
+	)
 	(label "VCCpm"
 		(at 207.01 114.3 0)
 		(effects
@@ -4421,6 +4741,16 @@
 			(justify left bottom)
 		)
 		(uuid "b6754e4f-3ca1-4819-bdfe-bc338028a539")
+	)
+	(label "NTC"
+		(at 250.19 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d6b949bd-ccdd-43ed-8743-ee3af0f042f7")
 	)
 	(label "USB.VBUS"
 		(at 48.26 21.59 0)
@@ -4474,6 +4804,17 @@
 			(justify right)
 		)
 		(uuid "c2a7fceb-64a9-4a59-9bde-f63617788fce")
+	)
+	(hierarchical_label "VCCpm"
+		(shape output)
+		(at 80.01 104.14 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c5a95418-6cb4-48b9-a869-02143ad98d3b")
 	)
 	(symbol
 		(lib_id "Transistor_FET:2N7002")
@@ -4643,7 +4984,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_1210_3225Metric"
 			(at 157.48 88.9 0)
 			(effects
 				(font
@@ -4663,6 +5004,15 @@
 		)
 		(property "Description" "Inductor, small symbol"
 			(at 157.48 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "https://www.mouser.tw/ProductDetail/Vishay-Dale/IHLP1210BZEZ2R2M5A?qs=iLKYxzqNS75fATvQbHxN2g%3D%3D"
+			(at 157.48 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4713,7 +5063,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 96.52 128.27 0)
 			(effects
 				(font
@@ -4783,7 +5133,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 50.8 77.47 0)
 			(effects
 				(font
@@ -4909,7 +5259,7 @@
 				)
 			)
 		)
-		(property "Value" "47.5K"
+		(property "Value" "57.6K"
 			(at 139.7 60.96 90)
 			(effects
 				(font
@@ -4917,7 +5267,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 139.7 63.5 0)
 			(effects
 				(font
@@ -4987,7 +5337,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 96.52 110.49 0)
 			(effects
 				(font
@@ -5030,6 +5380,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDA")
+		(at 232.41 105.41 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1f1d97af-ece7-4854-9aff-69b5f4c28fc6")
+		(property "Reference" "#PWR051"
+			(at 232.41 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 232.41 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 232.41 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 232.41 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "04d85327-c431-4a89-ba56-ee19bb8c545b")
+		)
+		(instances
+			(project "airspeed_BIO"
+				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
+					(reference "#PWR051")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 41.91 77.47 0)
 		(unit 1)
@@ -5057,7 +5473,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 41.91 77.47 0)
 			(effects
 				(font
@@ -5335,7 +5751,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 114.3 68.58 0)
 			(effects
 				(font
@@ -5405,7 +5821,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 190.5 92.71 0)
 			(effects
 				(font
@@ -5758,7 +6174,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
 			(at 224.79 35.56 0)
 			(effects
 				(font
@@ -5936,7 +6352,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 186.69 110.49 0)
 			(effects
 				(font
@@ -6061,7 +6477,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1.2K"
 			(at 192.532 112.776 90)
 			(effects
 				(font
@@ -6069,7 +6485,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 186.69 114.3 0)
 			(effects
 				(font
@@ -6136,7 +6552,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 168.91 104.14 0)
 			(effects
 				(font
@@ -6197,7 +6613,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "18K"
+		(property "Value" "45.3K"
 			(at 82.55 128.2699 0)
 			(effects
 				(font
@@ -6206,7 +6622,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 80.01 127 0)
 			(effects
 				(font
@@ -6412,7 +6828,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 176.53 34.29 0)
 			(effects
 				(font
@@ -6473,7 +6889,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47.5K"
+		(property "Value" "120K"
 			(at 170.18 133.3499 0)
 			(effects
 				(font
@@ -6482,7 +6898,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 167.64 132.08 0)
 			(effects
 				(font
@@ -6541,7 +6957,7 @@
 				)
 			)
 		)
-		(property "Value" "2K"
+		(property "Value" "2.7K"
 			(at 192.532 116.586 90)
 			(effects
 				(font
@@ -6549,7 +6965,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 186.69 118.11 0)
 			(effects
 				(font
@@ -6900,7 +7316,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 180.34 92.71 0)
 			(effects
 				(font
@@ -7160,7 +7576,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10F"
+		(property "Value" "10uF"
 			(at 62.23 78.7462 0)
 			(effects
 				(font
@@ -7169,7 +7585,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 59.69 77.47 0)
 			(effects
 				(font
@@ -7236,7 +7652,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 181.61 104.14 0)
 			(effects
 				(font
@@ -7380,7 +7796,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 74.93 80.01 0)
 			(effects
 				(font
@@ -7423,6 +7839,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:Thermistor_NTC")
+		(at 240.03 101.6 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "bec79235-ae24-428b-b2f1-19a25dbe9abd")
+		(property "Reference" "TH1"
+			(at 240.3475 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 240.3475 97.79 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P1.90mm_Vertical"
+			(at 238.76 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 238.76 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Temperature dependent resistor, negative temperature coefficient"
+			(at 240.03 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6882d057-ba08-4b3a-863c-01c417ce8516")
+		)
+		(pin "2"
+			(uuid "e4e92bed-f61c-43c0-8b89-14106de9429d")
+		)
+		(instances
+			(project ""
+				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
+					(reference "TH1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 200.66 92.71 0)
 		(unit 1)
@@ -7450,7 +7934,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 200.66 92.71 0)
 			(effects
 				(font
@@ -7655,7 +8139,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 86.36 88.9 0)
 			(effects
 				(font
@@ -7723,7 +8207,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 86.36 80.01 0)
 			(effects
 				(font
@@ -7793,7 +8277,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 166.37 34.29 0)
 			(effects
 				(font
@@ -7861,7 +8345,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 129.54 53.34 0)
 			(effects
 				(font
@@ -7929,7 +8413,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 30.48 78.74 0)
 			(effects
 				(font
@@ -7999,7 +8483,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 156.21 34.29 0)
 			(effects
 				(font
@@ -8131,7 +8615,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 171.45 88.9 0)
 			(effects
 				(font
@@ -8151,6 +8635,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 171.45 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "https://www.mouser.tw/ProductDetail/YAGEO/PE1206FRE470R02L?qs=eP2BKZSCXI6QA3qQIx2m4A%3D%3D"
+			(at 171.45 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8201,7 +8694,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 154.94 132.08 0)
 			(effects
 				(font
@@ -8269,7 +8762,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 74.93 88.9 0)
 			(effects
 				(font
@@ -8339,7 +8832,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 128.27 73.66 0)
 			(effects
 				(font
@@ -8407,7 +8900,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 129.54 44.45 0)
 			(effects
 				(font
@@ -8475,7 +8968,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 139.7 44.45 0)
 			(effects
 				(font
