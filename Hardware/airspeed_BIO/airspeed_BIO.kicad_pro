@@ -485,6 +485,9 @@
     "netclass_assignments": {
       "Net-(J3-In)": [
         "RF-50"
+      ],
+      "Net-(J4-In)": [
+        "RF-50"
       ]
     },
     "netclass_patterns": []

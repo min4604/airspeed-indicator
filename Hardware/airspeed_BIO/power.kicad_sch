@@ -5389,7 +5389,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1f1d97af-ece7-4854-9aff-69b5f4c28fc6")
-		(property "Reference" "#PWR051"
+		(property "Reference" "#PWR016"
 			(at 232.41 111.76 0)
 			(effects
 				(font
@@ -5439,7 +5439,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
-					(reference "#PWR051")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -5601,7 +5601,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2a34c9b0-ac4d-40c8-a3d0-044f4d475191")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR017"
 			(at 261.62 45.72 0)
 			(effects
 				(font
@@ -5651,7 +5651,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
-					(reference "#PWR016")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)

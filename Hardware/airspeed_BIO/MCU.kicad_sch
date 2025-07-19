@@ -2897,7 +2897,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0b2cf83e-40a8-4fad-a269-3dec5e3cb440")
-		(property "Reference" "C22"
+		(property "Reference" "C24"
 			(at 58.42 110.49 90)
 			(effects
 				(font
@@ -2958,7 +2958,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "C22")
+					(reference "C24")
 					(unit 1)
 				)
 			)
@@ -2973,7 +2973,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "17d88d5d-6773-4323-900b-b4c942fc3d2f")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR039"
 			(at 81.28 57.15 0)
 			(effects
 				(font
@@ -3023,7 +3023,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR030")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -3038,7 +3038,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2028783d-4694-4f51-abcc-f070460dff45")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR036"
 			(at 46.99 93.98 0)
 			(effects
 				(font
@@ -3088,7 +3088,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR027")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -3103,7 +3103,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "281cc948-e528-4c41-bcd9-03aafdb1c48a")
-		(property "Reference" "SW1"
+		(property "Reference" "SW2"
 			(at 69.85 58.42 90)
 			(effects
 				(font
@@ -3170,7 +3170,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "SW1")
+					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -3185,7 +3185,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "41587584-f5f7-4f56-b6d8-4a57603b54b1")
-		(property "Reference" "U4"
+		(property "Reference" "U6"
 			(at 162.56 116.84 0)
 			(effects
 				(font
@@ -3327,7 +3327,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "U4")
+					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -3343,7 +3343,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "485eb2d8-e498-41b0-a883-9abec4fba63f")
-		(property "Reference" "C25"
+		(property "Reference" "C27"
 			(at 146.05 59.6962 0)
 			(effects
 				(font
@@ -3406,7 +3406,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "C25")
+					(reference "C27")
 					(unit 1)
 				)
 			)
@@ -3421,7 +3421,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "533c1e8d-2164-4814-9b49-46f219e725ff")
-		(property "Reference" "C24"
+		(property "Reference" "C26"
 			(at 133.35 59.69 0)
 			(effects
 				(font
@@ -3484,7 +3484,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "C24")
+					(reference "C26")
 					(unit 1)
 				)
 			)
@@ -3499,7 +3499,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5c61ca00-b6d3-4c91-a4c8-3d2df14075d9")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR038"
 			(at 69.85 115.57 0)
 			(effects
 				(font
@@ -3549,7 +3549,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR029")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -3564,7 +3564,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6135e564-d8d3-44d5-9ec4-59c6c0cd3de7")
-		(property "Reference" "C23"
+		(property "Reference" "C25"
 			(at 86.36 67.31 0)
 			(effects
 				(font
@@ -3625,7 +3625,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "C23")
+					(reference "C25")
 					(unit 1)
 				)
 			)
@@ -3640,7 +3640,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6f28adec-d21f-4d41-8d54-5c20d0b0384b")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR040"
 			(at 81.28 82.55 0)
 			(effects
 				(font
@@ -3690,7 +3690,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR031")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -3705,7 +3705,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "79c62f10-ae16-47b2-ba37-364d50a88f77")
-		(property "Reference" "C21"
+		(property "Reference" "C23"
 			(at 58.42 87.63 90)
 			(effects
 				(font
@@ -3766,7 +3766,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "C21")
+					(reference "C23")
 					(unit 1)
 				)
 			)
@@ -3782,7 +3782,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "879cd9dc-bf55-41b8-ba76-338474276844")
-		(property "Reference" "R24"
+		(property "Reference" "R26"
 			(at 74.93 101.6 90)
 			(effects
 				(font
@@ -3843,7 +3843,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "R24")
+					(reference "R26")
 					(unit 1)
 				)
 			)
@@ -3860,7 +3860,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "87dd1f4a-5ddd-44c9-9e46-d303ec618a31")
-		(property "Reference" "R25"
+		(property "Reference" "R27"
 			(at 83.82 57.15 0)
 			(effects
 				(font
@@ -3923,7 +3923,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "R25")
+					(reference "R27")
 					(unit 1)
 				)
 			)
@@ -3938,7 +3938,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a48a95a9-e7e9-48f7-86b2-13b9d5c6e086")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR043"
 			(at 158.75 125.73 0)
 			(effects
 				(font
@@ -3988,7 +3988,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR034")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -4003,7 +4003,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b4ff35f8-a992-42e6-80b9-877452d60ebf")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR037"
 			(at 46.99 106.68 0)
 			(effects
 				(font
@@ -4053,7 +4053,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR028")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -4068,7 +4068,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e4531bac-a492-4243-b99b-7cc757afeb52")
-		(property "Reference" "#PWR032"
+		(property "Reference" "#PWR041"
 			(at 130.81 57.15 0)
 			(effects
 				(font
@@ -4118,7 +4118,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR032")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -4133,7 +4133,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e7bb7bc1-c2a6-48c3-8590-1183050c191a")
-		(property "Reference" "#PWR033"
+		(property "Reference" "#PWR042"
 			(at 130.81 74.93 0)
 			(effects
 				(font
@@ -4183,7 +4183,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/ac3ccc3e-0bab-47ba-8bac-2fd6453dfecf"
-					(reference "#PWR033")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)

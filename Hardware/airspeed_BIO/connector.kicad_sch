@@ -2401,34 +2401,16 @@
 		(uuid "0116c7e0-a579-418c-8c8e-e3fa60ebff74")
 	)
 	(junction
-		(at 101.6 71.12)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0e34bb44-ab74-4bc4-b55d-c702ca35f1cb")
-	)
-	(junction
 		(at 41.91 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1fddf3f4-fa1d-4562-83df-0f9f6028c04f")
 	)
 	(junction
-		(at 101.6 31.75)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4a790017-e659-44af-ad5d-0c03c2ea5954")
-	)
-	(junction
 		(at 69.85 132.08)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9110ad88-c403-41f8-9365-74296f79460c")
-	)
-	(junction
-		(at 111.76 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9b1d16bd-9c8a-47ef-8965-9e1c731b7121")
 	)
 	(junction
 		(at 68.58 49.53)
@@ -2441,12 +2423,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c95afc4e-1f35-459f-9006-1e607aebe633")
-	)
-	(junction
-		(at 86.36 71.12)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d5db9ca0-b2e2-4777-98b8-73cac918c825")
 	)
 	(junction
 		(at 41.91 92.71)
@@ -2561,43 +2537,13 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 68.58) (xy 111.76 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0d0a406f-1dce-46cc-bf58-0faa5c55e039")
-	)
-	(wire
-		(pts
-			(xy 101.6 31.75) (xy 64.77 31.75)
+			(xy 64.77 31.75) (xy 111.76 31.75)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "0f10c48f-e2ce-480a-b124-533cb907fb30")
-	)
-	(wire
-		(pts
-			(xy 101.6 71.12) (xy 86.36 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1371c997-5db2-4c70-8829-68b3cf21c80f")
-	)
-	(wire
-		(pts
-			(xy 111.76 71.12) (xy 101.6 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "159e5842-af00-49e0-8002-4dc2d980d440")
 	)
 	(wire
 		(pts
@@ -2841,16 +2787,6 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 63.5) (xy 111.76 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d02f9e9-b21d-459b-8302-b4961737686f")
-	)
-	(wire
-		(pts
 			(xy 184.15 54.61) (xy 184.15 60.96)
 		)
 		(stroke
@@ -3051,16 +2987,6 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 31.75) (xy 111.76 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c47b395e-638a-4024-b240-7f06da592db5")
-	)
-	(wire
-		(pts
 			(xy 161.29 71.12) (xy 167.64 71.12)
 		)
 		(stroke
@@ -3151,16 +3077,6 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 63.5) (xy 101.6 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "de96c88c-42a2-4744-98c3-304e3067bfbe")
-	)
-	(wire
-		(pts
 			(xy 41.91 69.85) (xy 41.91 82.55)
 		)
 		(stroke
@@ -3228,16 +3144,6 @@
 			(type default)
 		)
 		(uuid "f8e264f3-b23d-4169-a92a-ac263b39685e")
-	)
-	(wire
-		(pts
-			(xy 101.6 68.58) (xy 101.6 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fa5a8b55-2249-4435-b1fe-4328100e79e0")
 	)
 	(label "SYS.SWCLK"
 		(at 87.63 129.54 0)
@@ -3396,7 +3302,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "06d3224e-40ec-4af0-9378-f18c62eb41aa")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR019"
 			(at 49.53 80.01 0)
 			(effects
 				(font
@@ -3446,7 +3352,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "#PWR018")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -3532,7 +3438,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "22797d47-b022-461f-8345-f6f8e01dda8f")
-		(property "Reference" "SW3"
+		(property "Reference" "SW1"
 			(at 172.72 62.23 0)
 			(effects
 				(font
@@ -3587,7 +3493,7 @@
 		(instances
 			(project ""
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "SW3")
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -3603,7 +3509,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "409936e7-a29b-4a44-aed7-1801728c074a")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR018"
 			(at 41.91 101.6 0)
 			(effects
 				(font
@@ -3653,7 +3559,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "#PWR017")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -3670,7 +3576,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "494cb3a4-d99d-49f2-b6e8-5251a8f84fc0")
-		(property "Reference" "R29"
+		(property "Reference" "R25"
 			(at 186.69 77.4699 0)
 			(effects
 				(font
@@ -3724,7 +3630,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "R29")
+					(reference "R25")
 					(unit 1)
 				)
 			)
@@ -3740,7 +3646,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5889ebe8-b2c8-455b-9ba0-585f2135d681")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR021"
 			(at 69.85 151.13 0)
 			(effects
 				(font
@@ -3790,7 +3696,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "#PWR020")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -3878,7 +3784,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "66fc0155-d9b0-4ca5-91f9-db2fb42ae1e5")
-		(property "Reference" "R28"
+		(property "Reference" "R24"
 			(at 186.69 62.2299 0)
 			(effects
 				(font
@@ -3932,7 +3838,7 @@
 		(instances
 			(project ""
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "R28")
+					(reference "R24")
 					(unit 1)
 				)
 			)
@@ -4019,7 +3925,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7bbdbcce-2c5e-401e-8a30-3f4e6aea0b79")
-		(property "Reference" "#PWR049"
+		(property "Reference" "#PWR024"
 			(at 184.15 90.17 0)
 			(effects
 				(font
@@ -4069,147 +3975,7 @@
 		(instances
 			(project ""
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "#PWR049")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 111.76 66.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "852ef7a4-a1fd-4dd2-a2d7-7eae92fe6451")
-		(property "Reference" "C17"
-			(at 114.3 64.7762 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1u"
-			(at 114.3 67.3162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 111.76 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 111.76 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 111.76 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7699d308-805a-4a48-b465-e466ede135c0")
-		)
-		(pin "1"
-			(uuid "48f6bc9e-c4f9-4074-b34b-03284539c9d5")
-		)
-		(instances
-			(project "airspeed_BIO"
-				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "C17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 101.6 66.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8832523e-b64d-4aa3-9df6-73c46f0078f2")
-		(property "Reference" "C16"
-			(at 104.14 64.7762 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1u"
-			(at 104.14 67.3162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 101.6 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 101.6 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 101.6 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "bd490172-9d6c-426d-a5e6-4f3e6792faab")
-		)
-		(pin "1"
-			(uuid "7b55d122-4df5-42c8-893e-17e6451f952b")
-		)
-		(instances
-			(project "airspeed_BIO"
-				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "C16")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -4225,7 +3991,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "901de923-80b4-40ad-b733-60ca574d55bc")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR022"
 			(at 82.55 81.28 0)
 			(effects
 				(font
@@ -4275,7 +4041,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "#PWR021")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -4291,7 +4057,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9870e7b7-d9fe-4810-8868-ea0e8de60247")
-		(property "Reference" "J4"
+		(property "Reference" "J3"
 			(at 185.42 35.5601 0)
 			(effects
 				(font
@@ -4345,7 +4111,7 @@
 		(instances
 			(project ""
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "J4")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -4665,7 +4431,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "efead740-381d-4fec-ba9b-a352bf36bc4f")
-		(property "Reference" "#PWR050"
+		(property "Reference" "#PWR023"
 			(at 175.26 45.72 0)
 			(effects
 				(font
@@ -4715,7 +4481,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "#PWR050")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -4731,7 +4497,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f0dcbcb6-60dc-4dcf-bfca-8dd69de3c92d")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR020"
 			(at 69.85 125.73 0)
 			(effects
 				(font
@@ -4781,7 +4547,7 @@
 		(instances
 			(project ""
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "#PWR019")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
