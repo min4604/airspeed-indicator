@@ -1,0 +1,27 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,9.0.3*%
+%TF.CreationDate,2025-07-30T22:26:29+08:00*%
+%TF.ProjectId,airspeed_BIO,61697273-7065-4656-945f-42494f2e6b69,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,NonPlated,1,2,NPTH,Drill*%
+%TF.FilePolarity,Positive*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 9.0.3) date 2025-07-30 22:26:29*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,ComponentDrill*%
+%ADD10C,2.200000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+%TO.C,H3*%
+X98000000Y-63000000D03*
+%TO.C,H2*%
+X98000000Y-97500000D03*
+%TO.C,H1*%
+X147500000Y-63000000D03*
+%TO.C,H4*%
+X147500000Y-97500000D03*
+M02*
