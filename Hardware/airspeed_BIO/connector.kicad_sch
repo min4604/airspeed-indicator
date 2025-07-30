@@ -4127,7 +4127,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a289b886-65ac-447f-8251-6f07257bad26")
-		(property "Reference" "C15"
+		(property "Reference" "C14"
 			(at 35.56 86.3662 0)
 			(effects
 				(font
@@ -4181,7 +4181,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/679a9433-c527-4736-baca-b3e5544bf971"
-					(reference "C15")
+					(reference "C14")
 					(unit 1)
 				)
 			)

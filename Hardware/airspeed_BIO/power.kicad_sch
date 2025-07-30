@@ -12,113 +12,6 @@
 		(comment 1 "design by Chen")
 	)
 	(lib_symbols
-		(symbol "Connector:TestPoint"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.762)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "TP"
-				(at 0 6.858 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TestPoint"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 5.08 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 5.08 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "test point"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "test point tp"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Pin* Test*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "TestPoint_0_1"
-				(circle
-					(center 0 3.302)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "TestPoint_1_1"
-				(pin passive line
-					(at 0 0 90)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
@@ -2776,12 +2669,6 @@
 		(uuid "4ca86e9a-fc80-4301-8c9e-d546f1040b40")
 	)
 	(junction
-		(at 224.79 38.1)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4f21fe90-48be-49e4-8713-e801d0808e72")
-	)
-	(junction
 		(at 121.92 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2900,12 +2787,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c8369f40-2b0c-4531-8022-447c8583020b")
-	)
-	(junction
-		(at 196.85 45.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ce9baf3c-3b87-46ce-a714-2ff43bf36f33")
 	)
 	(junction
 		(at 203.2 114.3)
@@ -3094,16 +2975,6 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 58.42) (xy 210.82 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1cb5e6b7-36c8-4696-8dd7-d1d787845fe6")
-	)
-	(wire
-		(pts
 			(xy 166.37 43.18) (xy 176.53 43.18)
 		)
 		(stroke
@@ -3274,16 +3145,6 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 55.88) (xy 196.85 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3d604b3a-9a00-4607-83ae-c5f1dc2df433")
-	)
-	(wire
-		(pts
 			(xy 121.92 44.45) (xy 121.92 53.34)
 		)
 		(stroke
@@ -3414,7 +3275,7 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 38.1) (xy 224.79 45.72)
+			(xy 224.79 35.56) (xy 224.79 45.72)
 		)
 		(stroke
 			(width 0)
@@ -3661,16 +3522,6 @@
 			(type default)
 		)
 		(uuid "6a18c09b-71ca-4b06-9aa3-6af45483c02a")
-	)
-	(wire
-		(pts
-			(xy 224.79 35.56) (xy 224.79 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6e4a319f-abff-4fc9-b6b0-779bb0f4a362")
 	)
 	(wire
 		(pts
@@ -4384,16 +4235,6 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 38.1) (xy 229.87 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dd401a9f-79ac-473f-8db0-a9ff7ae0e056")
-	)
-	(wire
-		(pts
 			(xy 50.8 83.82) (xy 59.69 83.82)
 		)
 		(stroke
@@ -4511,16 +4352,6 @@
 			(type default)
 		)
 		(uuid "ee75104b-5555-4fb9-bd85-de44b9594879")
-	)
-	(wire
-		(pts
-			(xy 196.85 45.72) (xy 196.85 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ee866a17-fb31-4900-afcd-b7057079b9c9")
 	)
 	(wire
 		(pts
@@ -6731,76 +6562,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 196.85 52.07 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8bc458d5-b0f6-4f98-b4d2-ab55b44322e1")
-		(property "Reference" "C12"
-			(at 200.66 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1uF 16V"
-			(at 200.66 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 197.8152 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 196.85 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 196.85 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "eaa2e835-7286-405f-8c65-3ac9845d3349")
-		)
-		(pin "2"
-			(uuid "a40f9fc8-ad30-416a-bf63-c88a2c6002c7")
-		)
-		(instances
-			(project "airspeed_BIO"
-				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
-					(reference "C12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 176.53 34.29 0)
 		(unit 1)
@@ -7162,7 +6923,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "985890db-1ae2-40a0-b6f0-637410c6bf0c")
-		(property "Reference" "C14"
+		(property "Reference" "C13"
 			(at 228.6 50.8 0)
 			(effects
 				(font
@@ -7216,7 +6977,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
-					(reference "C14")
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -7916,7 +7677,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c7f590a1-d1e6-471a-bc32-8a6b5bed6e59")
-		(property "Reference" "C13"
+		(property "Reference" "C12"
 			(at 203.2 91.4462 0)
 			(effects
 				(font
@@ -7970,7 +7731,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
-					(reference "C13")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -8520,70 +8281,6 @@
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
 					(reference "C7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 229.87 38.1 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "ebe8d575-9419-4db0-9c54-016c6ba89d46")
-		(property "Reference" "TP1"
-			(at 234.95 33.02 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 234.95 35.56 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm"
-			(at 229.87 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 229.87 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "43cda1b3-d290-480d-97a8-f1c51fddcebd")
-		)
-		(instances
-			(project "airspeed_BIO"
-				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/e6ebb58c-ec59-4ef0-bd77-5233a607af47"
-					(reference "TP1")
 					(unit 1)
 				)
 			)

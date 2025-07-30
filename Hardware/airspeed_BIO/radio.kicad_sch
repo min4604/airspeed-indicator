@@ -2368,7 +2368,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3b8598a5-0e6b-4434-bb09-e5d295c48ded")
-		(property "Reference" "C28"
+		(property "Reference" "C27"
 			(at 125.73 64.7762 0)
 			(effects
 				(font
@@ -2440,7 +2440,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/bc5e8fae-35c8-4595-bef2-c7c6a3d6b7bb"
-					(reference "C28")
+					(reference "C27")
 					(unit 1)
 				)
 			)
@@ -3026,7 +3026,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b784f8bf-0691-44a1-b757-bebcf75be11b")
-		(property "Reference" "C29"
+		(property "Reference" "C28"
 			(at 137.16 64.7762 0)
 			(effects
 				(font
@@ -3098,7 +3098,7 @@
 		(instances
 			(project "airspeed_BIO"
 				(path "/6ddcf4fe-9e51-4114-8222-5fc3f810c12a/bc5e8fae-35c8-4595-bef2-c7c6a3d6b7bb"
-					(reference "C29")
+					(reference "C28")
 					(unit 1)
 				)
 			)
