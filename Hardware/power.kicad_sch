@@ -4842,7 +4842,16 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "https://www.mouser.tw/ProductDetail/Vishay-Dale/IHLP1210BZEZ2R2M5A?qs=iLKYxzqNS75fATvQbHxN2g%3D%3D"
+		(property "Mouser" ""
+			(at 157.48 88.9 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER" "https://www.mouser.tw/ProductDetail/Vishay-Dale/IHLP1210BZEZ2R2M5A?qs=iLKYxzqNS75fATvQbHxN2g%3D%3D"
 			(at 157.48 88.9 90)
 			(effects
 				(font
@@ -6823,8 +6832,17 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "https://www.mouser.tw/ProductDetail/Monolithic-Power-Systems-MPS/MP2637GR-P?qs=493kPxzlxfIVMFQDxi%252BdaQ%3D%3D"
+		(property "Mouser" ""
 			(at 129.032 148.844 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER" "https://www.mouser.tw/ProductDetail/Monolithic-Power-Systems-MPS/MP2637GR-P?qs=493kPxzlxfIVMFQDxi%252BdaQ%3D%3D"
+			(at 128.27 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8339,7 +8357,16 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "https://www.mouser.tw/ProductDetail/YAGEO/PE1206FRE470R02L?qs=eP2BKZSCXI6QA3qQIx2m4A%3D%3D"
+		(property "Mouser" ""
+			(at 171.45 88.9 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER" "https://www.mouser.tw/ProductDetail/YAGEO/PE1206FRE470R02L?qs=eP2BKZSCXI6QA3qQIx2m4A%3D%3D"
 			(at 171.45 88.9 90)
 			(effects
 				(font
@@ -8382,7 +8409,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1u"
 			(at 157.48 133.3562 0)
 			(effects
 				(font
@@ -8410,6 +8437,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 154.94 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER" "80-C0603C104J3REAULR"
+			(at 154.94 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "WE" ""
 			(at 154.94 132.08 0)
 			(effects
 				(font
@@ -8548,6 +8593,15 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 128.27 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER" "603-AC0603FR-070RL"
 			(at 128.27 73.66 0)
 			(effects
 				(font

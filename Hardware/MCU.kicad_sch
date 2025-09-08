@@ -2940,7 +2940,7 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER" "80-CBR04C130F5GAC"
+		(property "MOUSER" "80-CBR06C130F5GAC"
 			(at 58.42 106.68 0)
 			(effects
 				(font
@@ -3388,7 +3388,7 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER" "80-C0402C104K4P"
+		(property "MOUSER" "80-C0603C104J3REAULR"
 			(at 143.51 60.96 0)
 			(effects
 				(font
@@ -3607,7 +3607,7 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER" "80-C0402C105K4P"
+		(property "MOUSER" "80-C0603C105K4P"
 			(at 81.28 68.58 0)
 			(effects
 				(font
@@ -3748,7 +3748,7 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER" "80-CBR04C130F5GAC"
+		(property "MOUSER" "80-CBR06C130F5GAC"
 			(at 58.42 93.98 0)
 			(effects
 				(font
@@ -3825,7 +3825,7 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER" "603-AC0402FR-070RL"
+		(property "MOUSER" "603-AC0603FR-070RL"
 			(at 74.93 106.68 0)
 			(effects
 				(font
@@ -3869,7 +3869,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "10K"
 			(at 83.82 59.69 0)
 			(effects
 				(font
@@ -3905,7 +3905,7 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER" "603-AC0402FR-0710KL"
+		(property "MOUSER" ""
 			(at 81.28 58.42 0)
 			(effects
 				(font
