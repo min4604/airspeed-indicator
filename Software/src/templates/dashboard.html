@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>空速監控儀表板</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root { --bg:#0f172a; --panel:#111827; --text:#e5e7eb; --muted:#94a3b8; --accent:#38bdf8; }
+    html,body { margin:0; height:100%; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; }
+    header { padding:16px 20px; font-weight:600; letter-spacing:0.5px; background:#0b1220; border-bottom:1px solid #1f2937; }
+    main { padding:16px; max-width:1100px; margin:0 auto; }
+    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:12px; margin-bottom:16px; }
+    .card { background:var(--panel); border:1px solid #1f2937; border-radius:10px; padding:12px 14px; }
+    .label { font-size:12px; color:var(--muted); margin-bottom:6px; }
+    .value { font-size:28px; font-weight:700; color:#e2e8f0; }
+    .unit { font-size:14px; color:var(--muted); margin-left:6px; }
+    .row { display:flex; gap:16px; flex-wrap:wrap; }
+    .col { flex:1 1 520px; min-width:320px; }
+    canvas { background:#0c1220; border:1px solid #1f2937; border-radius:10px; }
+    a { color: var(--accent); }
+    .footer { color:#9ca3af; font-size:12px; margin-top:12px; text-align:right; }
+  </style>
+</head>
+<body>
+  <header>空速監控儀表板</header>
+  <main>
+    <div class="cards">
+      <div class="card">
+        <div class="label">
+          即時空速
+          <select id="airspeed-type" style="margin-left:8px;background:#1f2937;color:#e5e7eb;border:1px solid #374151;border-radius:4px;padding:2px 4px;font-size:11px;">
+            <option value="IAS">IAS (指示空速)</option>
+            <option value="CAS">CAS (校準空速)</option>
+            <option value="TAS" selected>TAS (真實空速)</option>
+          </select>
+        </div>
+        <div class="value" id="v-airspeed">--<span class="unit">km/h</span></div>
+      </div>
+      <div class="card"><div class="label">差壓轉換</div><div class="value" id="v-airspeed-ms">--<span class="unit">m/s</span></div></div>
+      <div class="card">
+        <div class="label">
+          環境溫度
+          <select id="temp-source" style="margin-left:8px;background:#1f2937;color:#e5e7eb;border:1px solid #374151;border-radius:4px;padding:2px 4px;font-size:11px;">
+            <option value="PADS">PADS</option>
+            <option value="HIDS">HIDS</option>
+            <option value="PDUS">PDUS</option>
+          </select>
+        </div>
+        <div class="value" id="v-temp">--<span class="unit">°C</span></div>
+      </div>
+      <div class="card"><div class="label">相對濕度</div><div class="value" id="v-hum">--<span class="unit">%</span></div></div>
+      <div class="card"><div class="label">靜壓</div><div class="value" id="v-press">--<span class="unit">kPa</span></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <canvas id="chart" height="220"></canvas>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="label">狀態</div>
+          <div id="status">等待資料...</div>
+          <div class="footer">資料來源：本機 Tkinter 後台（即時串流）</div>
+        </div>
+        <div class="card" style="margin-top:12px;">
+          <div class="label">更新模式</div>
+          <div style="font-size:14px;color:#cbd5e1;margin-top:8px;">
+            <label style="display:flex;align-items:center;gap:8px;">
+              <input type="radio" name="update-mode" value="stream" checked style="accent-color:#38bdf8;">
+              <span>即時推送（後台有新資料立即更新）</span>
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+              <input type="radio" name="update-mode" value="poll" style="accent-color:#38bdf8;">
+              <span>定時輪詢</span>
+              <select id="update-rate" style="margin-left:8px;background:#1f2937;color:#e5e7eb;border:1px solid #374151;border-radius:4px;padding:2px 6px;font-size:12px;" disabled>
+                <option value="250">0.25 秒</option>
+                <option value="500">0.5 秒</option>
+                <option value="1000" selected>1 秒</option>
+                <option value="2000">2 秒</option>
+                <option value="5000">5 秒</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const el = (id) => document.getElementById(id);
+    const maxPoints = 600; // 約 10 分鐘 @ 1Hz
+
+    const ctx = document.getElementById('chart');
+    const data = {
+      labels: [],
+      datasets: [{
+        label: 'Airspeed (km/h)',
+        data: [],
+        borderColor: '#38bdf8',
+        backgroundColor: 'rgba(56,189,248,0.15)',
+        tension: 0.2,
+        borderWidth: 2,
+        pointRadius: 0
+      }]
+    };
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { ticks: { color: '#94a3b8', maxRotation: 0, autoSkip: true } },
+          y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.15)' } }
+        },
+        plugins: {
+          legend: { labels: { color: '#cbd5e1' } }
+        }
+      }
+    });
+
+    function updateChartLabel() {
+      const type = el('airspeed-type').value;
+      const labels = {IAS: 'IAS (km/h)', CAS: 'CAS (km/h)', TAS: 'TAS (km/h)'};
+      data.datasets[0].label = labels[type] || 'Airspeed (km/h)';
+      chart.update('none');
+    }
+
+    function pushPoint(ts, kmh){
+      const dt = new Date(ts * 1000);
+      const label = dt.toLocaleTimeString();
+      data.labels.push(label);
+      data.datasets[0].data.push(kmh);
+      if (data.labels.length > maxPoints) {
+        data.labels.shift();
+        data.datasets[0].data.shift();
+      }
+      chart.update('none');
+    }
+
+    async function loadSeries(){
+      try {
+        const r = await fetch('/api/series');
+        const arr = await r.json();
+        data.labels.length = 0; data.datasets[0].data.length = 0;
+        const type = el('airspeed-type').value;
+        for (const p of arr) {
+          if (p && typeof p.t === 'number') {
+            const kmhKey = `${type}_kmh`;
+            const kmh = Number(p[kmhKey]) || 0;
+            pushPoint(p.t, kmh);
+          }
+        }
+        if (arr.length) el('status').textContent = `載入歷史資料 ${arr.length} 筆`; else el('status').textContent = '尚無歷史資料';
+      } catch(e){
+        el('status').textContent = '無法載入歷史資料';
+      }
+    }
+
+    async function pollLive(){
+      try {
+        const r = await fetch('/api/live');
+        const j = await r.json();
+        if (j.status === 'no-data') {
+          el('status').textContent = '等待資料...';
+          return;
+        }
+        const ts = j.timestamp || (Date.now()/1000);
+        
+        // Airspeed type selection
+        const airspeedType = el('airspeed-type').value;
+        const kmh = Number(j[`${airspeedType}_kmh`]) || 0;
+        const ms = Number(j[`${airspeedType}_ms`]) || 0;
+        
+        pushPoint(ts, kmh);
+        el('v-airspeed').innerHTML = `${kmh.toFixed(2)}<span class="unit"> km/h</span>`;
+        el('v-airspeed-ms').innerHTML = `${ms.toFixed(2)}<span class="unit"> m/s</span>`;
+        
+        // Temperature source selection
+        const tempSource = el('temp-source').value;
+        let tempVal = null;
+        if (tempSource === 'PADS') tempVal = j.temperature_PADS;
+        else if (tempSource === 'HIDS') tempVal = j.temperature_HIDS;
+        else if (tempSource === 'PDUS') tempVal = j.temperature_PDUS;
+        
+        if (tempVal != null) el('v-temp').innerHTML = `${Number(tempVal).toFixed(2)}<span class="unit"> °C</span>`;
+        else el('v-temp').innerHTML = `--<span class="unit"> °C</span>`;
+        
+        if (j.humidity_percent != null) el('v-hum').innerHTML = `${Number(j.humidity_percent).toFixed(1)}<span class="unit"> %</span>`;
+        if (j.pressure_kpa != null) el('v-press').innerHTML = `${Number(j.pressure_kpa).toFixed(2)}<span class="unit"> kPa</span>`;
+        el('status').textContent = '連線正常';
+      } catch(e) {
+        el('status').textContent = '連線中斷或尚未啟動';
+      }
+    }
+
+    function updateDisplay(j) {
+      if (!j) return;
+      const ts = j.timestamp || (Date.now()/1000);
+      
+      // Airspeed type selection
+      const airspeedType = el('airspeed-type').value;
+      const kmh = Number(j[`${airspeedType}_kmh`]) || 0;
+      const ms = Number(j[`${airspeedType}_ms`]) || 0;
+      
+      pushPoint(ts, kmh);
+      el('v-airspeed').innerHTML = `${kmh.toFixed(2)}<span class="unit"> km/h</span>`;
+      el('v-airspeed-ms').innerHTML = `${ms.toFixed(2)}<span class="unit"> m/s</span>`;
+      
+      // Temperature source selection
+      const tempSource = el('temp-source').value;
+      let tempVal = null;
+      if (tempSource === 'PADS') tempVal = j.temperature_PADS;
+      else if (tempSource === 'HIDS') tempVal = j.temperature_HIDS;
+      else if (tempSource === 'PDUS') tempVal = j.temperature_PDUS;
+      
+      if (tempVal != null) el('v-temp').innerHTML = `${Number(tempVal).toFixed(2)}<span class="unit"> °C</span>`;
+      else el('v-temp').innerHTML = `--<span class="unit"> °C</span>`;
+      
+      if (j.humidity_percent != null) el('v-hum').innerHTML = `${Number(j.humidity_percent).toFixed(1)}<span class="unit"> %</span>`;
+      if (j.pressure_kpa != null) el('v-press').innerHTML = `${Number(j.pressure_kpa).toFixed(2)}<span class="unit"> kPa</span>`;
+      el('status').textContent = '連線正常';
+    }
+
+    loadSeries();
+    updateChartLabel();
+    
+    // Stream and polling management
+    let eventSource = null;
+    let pollInterval = null;
+
+    function startStream() {
+      if (eventSource) eventSource.close();
+      if (pollInterval) clearInterval(pollInterval);
+      
+      eventSource = new EventSource('/api/stream');
+      eventSource.onmessage = (e) => {
+        try {
+          const j = JSON.parse(e.data);
+          updateDisplay(j);
+        } catch(err) {
+          console.error('Parse error:', err);
+        }
+      };
+      eventSource.onerror = () => {
+        el('status').textContent = '串流中斷，嘗試重連...';
+      };
+      el('status').textContent = '等待即時資料...';
+    }
+
+    function startPolling() {
+      if (eventSource) eventSource.close();
+      if (pollInterval) clearInterval(pollInterval);
+      
+      const rate = parseInt(el('update-rate').value) || 1000;
+      pollInterval = setInterval(pollLive, rate);
+    }
+
+    function switchUpdateMode() {
+      const mode = document.querySelector('input[name="update-mode"]:checked').value;
+      if (mode === 'stream') {
+        el('update-rate').disabled = true;
+        startStream();
+      } else {
+        el('update-rate').disabled = false;
+        startPolling();
+      }
+    }
+    
+    // Event listeners
+    document.querySelectorAll('input[name="update-mode"]').forEach(radio => {
+      radio.addEventListener('change', switchUpdateMode);
+    });
+    
+    el('update-rate').addEventListener('change', () => {
+      const mode = document.querySelector('input[name="update-mode"]:checked').value;
+      if (mode === 'poll') startPolling();
+    });
+    
+    el('airspeed-type').addEventListener('change', () => {
+      updateChartLabel();
+      loadSeries();
+    });
+    
+    // Start with stream mode
+    switchUpdateMode();
+  </script>
+</body>
+</html>

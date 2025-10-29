@@ -74,7 +74,7 @@ HAL_StatusTypeDef PDUS_Read(I2C_HandleTypeDef *hi2c, SensorData_t *data);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint8_t Send_head[3]  = {0x02,0x00,0x3A};
-uint8_t roll_data[18] = {0x02,0x00,0x0D};
+uint8_t roll_data[18] = {0x02,0x00,0x0F};
 
 /* USER CODE END 0 */
 
@@ -136,11 +136,11 @@ int main(void)
 
 
 
-	/*uint8_t tt[] = "Hello word";
-	HAL_UART_Transmit(&huart1, tt, sizeof(tt), 100);
-	uint8_t gg[6] = {0x02,0x00,0x3A,0x55,0x85,0x68};
-	HAL_UART_Transmit(&huart2, gg, sizeof(gg), 100);
-	HAL_Delay(500);*/
+	//uint8_t tt[] = "Hello word";
+	HAL_UART_Transmit(&huart1, roll_data, sizeof(roll_data), 100);
+	//uint8_t gg[6] = {0x02,0x00,0x3A,0x55,0x85,0x68};
+	HAL_UART_Transmit(&huart2, roll_data, sizeof(roll_data), 100);
+	HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -327,7 +327,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 #define HIDS_ADDR (0x44 <<1) //WSEN-HIDS (I²C 0x44) 讀取
-#define PADS_ADDR (0x5d <<1) //WSEN-PADS (I²C 0x5C) 氣壓與溫度
+#define PADS_ADDR (0x5C <<1) //WSEN-PADS (I²C 0x5C) 氣壓與溫度
 #define PDUS_ADDR (0x78 <<1)
 
 
