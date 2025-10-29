@@ -60,7 +60,7 @@ typedef struct {
     float pressure_kpa;
     float temperature_c;
     float humidity_rh;
-    uint8_t rolldata[6];
+    uint8_t *rolldata;
 } SensorData_t;
 
 SensorData_t HIDS, PADS, PDUS;
@@ -69,13 +69,12 @@ void PADS_Init(I2C_HandleTypeDef *hi2c);
 HAL_StatusTypeDef HIDS_Read(I2C_HandleTypeDef *hi2c, SensorData_t *data);
 HAL_StatusTypeDef PADS_Read(I2C_HandleTypeDef *hi2c, SensorData_t *data);
 HAL_StatusTypeDef PDUS_Read(I2C_HandleTypeDef *hi2c, SensorData_t *data);
-HAL_StatusTypeDef allroll_read(I2C_HandleTypeDef *hi2c);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t Send_head[3] = {0x02,0x00,0x3A};
-uint8_t roll_data[32];
+uint8_t Send_head[3]  = {0x02,0x00,0x3A};
+uint8_t roll_data[18] = {0x02,0x00,0x0D};
 
 /* USER CODE END 0 */
 
@@ -123,12 +122,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	HIDS.rolldata = &roll_data[3];
+	PADS.rolldata = &roll_data[9];
+	PDUS.rolldata = &roll_data[14];
 	HIDS_Read(&hi2c1, &HIDS);
 	HAL_Delay(10);
 	PADS_Read(&hi2c1, &PADS);
 	HAL_Delay(10);
 	PDUS_Read(&hi2c1, &PDUS);
 	HAL_Delay(10);
+
 	//allroll_read(&hi2c1);
 
 
