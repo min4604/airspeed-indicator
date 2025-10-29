@@ -460,10 +460,12 @@
   },
   "libraries": {
     "pinned_footprint_libs": [
-      "TTR"
+      "TTR",
+      "Unreal"
     ],
     "pinned_symbol_libs": [
-      "TTR"
+      "TTR",
+      "Unreal"
     ]
   },
   "meta": {
