@@ -20,7 +20,7 @@ from tkinter.scrolledtext import ScrolledText
 # ==== Optional Flask Web Server (for HTML dashboard) ====
 _flask_available = False
 try:
-	from flask import Flask, jsonify, render_template, Response
+	from flask import Flask, jsonify, render_template, Response, request
 	_flask_available = True
 except Exception:
 	_flask_available = False
@@ -30,6 +30,11 @@ DATA_LOCK = threading.Lock()
 LATEST: Dict[str, Any] = {}
 SERIES: Deque[Dict[str, Any]] = deque(maxlen=600)  # ~ last 10 minutes at 1s sampling
 UPDATE_EVENT = threading.Event()  # Signal when new data is available
+QNH_PRESSURE = 1013.25  # Default QNH in hPa
+
+# ==== PDUS Differential Pressure Filter ====
+PDUS_FILTER_SIZE = 10  # Moving average window size
+PDUS_PRESSURE_BUFFER: Deque[float] = deque(maxlen=PDUS_FILTER_SIZE)
 
 
 class SerialReader:
@@ -215,6 +220,91 @@ class SerialReader:
 		self._ser = None
 
 
+def calculate_pressure_altitude(pressure_kpa: float, temperature_c: float = 15.0, qnh_hpa: float = None) -> dict:
+	"""
+	Calculate pressure altitude from atmospheric pressure.
+	Uses the International Standard Atmosphere (ISA) model.
+	
+	Args:
+		pressure_kpa: Atmospheric pressure in kPa
+		temperature_c: Temperature in Celsius (used for density altitude calculation)
+		qnh_hpa: QNH pressure setting in hPa (if None, uses standard 1013.25)
+	
+	Returns:
+		Dictionary containing:
+		- pressure_altitude_m: Pressure altitude in meters (ISA standard)
+		- pressure_altitude_ft: Pressure altitude in feet (ISA standard)
+		- qnh_altitude_m: QNH corrected altitude in meters
+		- qnh_altitude_ft: QNH corrected altitude in feet
+		- density_altitude_m: Density altitude in meters (optional)
+		- density_altitude_ft: Density altitude in feet (optional)
+	"""
+	import math
+	
+	result = {}
+	
+	try:
+		# Convert to Pa
+		pressure_pa = pressure_kpa * 1000.0
+		
+		# ISA standard values
+		P0_standard = 101325.0  # Sea level standard pressure in Pa (1013.25 hPa)
+		T0 = 288.15    # Sea level standard temperature in K (15°C)
+		L = -0.0065    # Temperature lapse rate in K/m
+		g = 9.80665    # Gravitational acceleration in m/s²
+		R = 287.05     # Specific gas constant for dry air in J/(kg·K)
+		
+		exponent = -(R * L) / g
+		
+		# Calculate standard pressure altitude (based on ISA 1013.25 hPa)
+		pressure_ratio_standard = pressure_pa / P0_standard
+		if pressure_ratio_standard > 0:
+			pressure_altitude_m = (T0 / L) * (math.pow(pressure_ratio_standard, exponent) - 1)
+			result['pressure_altitude_m'] = pressure_altitude_m
+			result['pressure_altitude_ft'] = pressure_altitude_m * 3.28084
+		else:
+			result['pressure_altitude_m'] = 0.0
+			result['pressure_altitude_ft'] = 0.0
+		
+		# Calculate QNH altitude if QNH is provided
+		if qnh_hpa is not None:
+			P0_qnh = qnh_hpa * 100.0  # Convert hPa to Pa
+			pressure_ratio_qnh = pressure_pa / P0_qnh
+			
+			if pressure_ratio_qnh > 0:
+				qnh_altitude_m = (T0 / L) * (math.pow(pressure_ratio_qnh, exponent) - 1)
+				result['qnh_altitude_m'] = qnh_altitude_m
+				result['qnh_altitude_ft'] = qnh_altitude_m * 3.28084
+			else:
+				result['qnh_altitude_m'] = 0.0
+				result['qnh_altitude_ft'] = 0.0
+			
+			result['qnh_hpa'] = qnh_hpa
+		
+		# Calculate density altitude (pressure altitude corrected for non-standard temperature)
+		if 'pressure_altitude_m' in result:
+			temperature_k = temperature_c + 273.15
+			# ISA temperature at pressure altitude
+			T_isa = T0 + L * result['pressure_altitude_m']
+			
+			# Density altitude formula: DA = PA + 120 * (T - T_ISA)
+			# More accurate formula using density ratio
+			density_ratio = (T_isa / temperature_k)
+			density_altitude_m = result['pressure_altitude_m'] + (T_isa / L) * (1 - density_ratio)
+			
+			result['density_altitude_m'] = density_altitude_m
+			result['density_altitude_ft'] = density_altitude_m * 3.28084
+		
+		result['pressure_kpa'] = pressure_kpa
+		result['temperature_c'] = temperature_c
+		
+	except Exception as e:
+		result['error'] = str(e)
+		result['pressure_altitude_m'] = 0.0
+		result['pressure_altitude_ft'] = 0.0
+	
+	return result
+
 def decoder(data: bytes) -> dict:
 	"""
 	Decode sensor data from the packet.
@@ -236,7 +326,7 @@ def decoder(data: bytes) -> dict:
 		# PADS_pressure decoder Kpa
 		if len(data) >= 12:
 			raw_value = (data[11] << 16) + (data[10] << 8) + data[9]
-			result['pressure_PADS'] = 101.5683#raw_value / 40960.0
+			result['pressure_PADS'] =raw_value / 40960.0
 
 		# PADS_temperature decoder
 		if len(data) >= 14:
@@ -244,14 +334,35 @@ def decoder(data: bytes) -> dict:
 			result['temperature_PADS'] = raw_value / 100.0
 		
 		# PDUS_diffential_pressure decoder pa
+		# Precision: 7.63e-5 kPa/digit = 0.0763 Pa/digit
+		# Range: -1kPa ~ 1kPa (-1000Pa ~ 1000Pa)
+		# Zero offset at raw_value ≈ 32768 for 16-bit ADC 3277
 		if len(data) >= 16:
 			raw_value = (data[14] << 8) + data[15]
-			result['pressure_PDUS'] = (raw_value - 3277) * 7.63e-2 - 1000
+			# Convert to Pa: (raw - zero_offset) * sensitivity
+			pressure_raw = (raw_value - 16384) * 0.07629511 - 6.1 #壓差校正
+			
+			# Apply moving average filter to reduce noise
+			PDUS_PRESSURE_BUFFER.append(pressure_raw)
+			if len(PDUS_PRESSURE_BUFFER) > 0:
+				result['pressure_PDUS'] = sum(PDUS_PRESSURE_BUFFER) / len(PDUS_PRESSURE_BUFFER)
+			else:
+				result['pressure_PDUS'] = pressure_raw
 
 		# PDUS_temperature decoder
 		if len(data) >= 18:
 			raw_value = (data[16] << 8) + data[17]
 			result['temperature_PDUS'] = (raw_value - 8192) * 4.27e-3
+		
+		# Calculate altitude from pressure if we have pressure data
+		if 'pressure_PADS' in result:
+			# Use PADS temperature if available, otherwise use HIDS or PDUS temperature
+			temp_for_altitude = result.get('temperature_PADS', result.get('temperature_HIDS', result.get('temperature_PDUS', 15.0)))
+			result['altitude'] = calculate_pressure_altitude(
+				result['pressure_PADS'],  # In kPa
+				temp_for_altitude,
+				QNH_PRESSURE  # Use global QNH setting
+			)
 		
 		# Calculate airspeed if we have all necessary data
 		if 'pressure_PDUS' in result and 'pressure_PADS' in result and 'temperature_PDUS' in result and 'humidity_HIDS' in result:
@@ -261,7 +372,7 @@ def decoder(data: bytes) -> dict:
 				result['temperature_PDUS'],
 				result['humidity_HIDS']
 			)
-			
+	
 	except Exception as e:
 		result['error'] = str(e)
 	
@@ -448,6 +559,21 @@ def bytes_to_hex_ascii(data: bytes, parse_protocol: bool = True) -> str:
 						data_info += f"\n            PDUS 差壓: {sensor_data['pressure_PDUS']:7.2f} Pa"
 					if 'temperature_PDUS' in sensor_data:
 						data_info += f"\n            PDUS 溫度: {sensor_data['temperature_PDUS']:7.2f}°C"
+					
+					# Display altitude if calculated
+					if 'altitude' in sensor_data:
+						altitude_info = sensor_data['altitude']
+						data_info += "\n            ===== 高度計算 ====="
+						if 'pressure_altitude_m' in altitude_info:
+							data_info += f"\n            氣壓高度: {altitude_info['pressure_altitude_m']:7.1f} m"
+						if 'pressure_altitude_ft' in altitude_info:
+							data_info += f" = {altitude_info['pressure_altitude_ft']:7.1f} ft"
+						if 'density_altitude_m' in altitude_info:
+							data_info += f"\n            密度高度: {altitude_info['density_altitude_m']:7.1f} m"
+						if 'density_altitude_ft' in altitude_info:
+							data_info += f" = {altitude_info['density_altitude_ft']:7.1f} ft"
+						if 'error' in altitude_info:
+							data_info += f"\n            計算錯誤: {altitude_info['error']}"
 					
 					# Display airspeed if calculated
 					if 'airspeed' in sensor_data:
@@ -719,6 +845,7 @@ def _create_flask_app() -> Optional["Flask"]:
 			latest = dict(LATEST)
 			data_dict = latest.get("data", {}) or {}
 			airspeed_dict = latest.get("airspeed", {}) or {}
+			altitude_dict = data_dict.get("altitude", {}) or {}
 
 			payload = {
 				"timestamp": latest.get("timestamp"),
@@ -736,6 +863,11 @@ def _create_flask_app() -> Optional["Flask"]:
 				"temperature_PDUS": data_dict.get("temperature_PDUS"),
 				"humidity_percent": data_dict.get("humidity_HIDS"),
 				"pressure_kpa": data_dict.get("pressure_PADS"),
+				"pressure_altitude_m": altitude_dict.get("pressure_altitude_m"),
+				"pressure_altitude_ft": altitude_dict.get("pressure_altitude_ft"),
+				"qnh_altitude_m": altitude_dict.get("qnh_altitude_m"),
+				"qnh_altitude_ft": altitude_dict.get("qnh_altitude_ft"),
+				"altitude": data_dict.get("altitude"),
 				"raw": data_dict,
 			}
 		return jsonify(payload)
@@ -744,6 +876,28 @@ def _create_flask_app() -> Optional["Flask"]:
 	def api_series():
 		with DATA_LOCK:
 			return jsonify(list(SERIES))
+	
+	@app.post("/api/set_qnh")
+	def set_qnh():
+		"""API endpoint to receive QNH pressure setting from frontend."""
+		global QNH_PRESSURE
+		try:
+			data = request.get_json()
+			qnh_hpa = data.get('qnh_hpa')
+			
+			if qnh_hpa is not None and 900 <= qnh_hpa <= 1100:
+				QNH_PRESSURE = float(qnh_hpa)
+				print(f"[QNH] Updated to {QNH_PRESSURE:.2f} hPa")
+				return jsonify({"status": "success", "qnh_hpa": QNH_PRESSURE})
+			else:
+				return jsonify({"status": "error", "message": "Invalid QNH value"}), 400
+		except Exception as e:
+			return jsonify({"status": "error", "message": str(e)}), 500
+	
+	@app.get("/api/get_qnh")
+	def get_qnh():
+		"""API endpoint to get current QNH setting."""
+		return jsonify({"qnh_hpa": QNH_PRESSURE})
 
 	@app.get("/api/stream")
 	def api_stream():
@@ -755,6 +909,7 @@ def _create_flask_app() -> Optional["Flask"]:
 					latest = dict(LATEST)
 					data_dict = latest.get("data", {}) or {}
 					airspeed_dict = latest.get("airspeed", {}) or {}
+					altitude_dict = data_dict.get("altitude", {}) or {}
 					payload = {
 						"timestamp": latest.get("timestamp"),
 						"IAS_ms": airspeed_dict.get("IAS_ms"),
@@ -771,6 +926,10 @@ def _create_flask_app() -> Optional["Flask"]:
 						"temperature_PDUS": data_dict.get("temperature_PDUS"),
 						"humidity_percent": data_dict.get("humidity_HIDS"),
 						"pressure_kpa": data_dict.get("pressure_PADS"),
+						"pressure_altitude_m": altitude_dict.get("pressure_altitude_m"),
+						"pressure_altitude_ft": altitude_dict.get("pressure_altitude_ft"),
+						"density_altitude_m": altitude_dict.get("density_altitude_m"),
+						"density_altitude_ft": altitude_dict.get("density_altitude_ft"),
 					}
 					import json
 					yield f"data: {json.dumps(payload)}\n\n"
@@ -787,6 +946,7 @@ def _create_flask_app() -> Optional["Flask"]:
 					latest = dict(LATEST)
 					data_dict = latest.get("data", {}) or {}
 					airspeed_dict = latest.get("airspeed", {}) or {}
+					altitude_dict = data_dict.get("altitude", {}) or {}
 					payload = {
 						"timestamp": latest.get("timestamp"),
 						"IAS_ms": airspeed_dict.get("IAS_ms"),
@@ -803,6 +963,10 @@ def _create_flask_app() -> Optional["Flask"]:
 						"temperature_PDUS": data_dict.get("temperature_PDUS"),
 						"humidity_percent": data_dict.get("humidity_HIDS"),
 						"pressure_kpa": data_dict.get("pressure_PADS"),
+						"pressure_altitude_m": altitude_dict.get("pressure_altitude_m"),
+						"pressure_altitude_ft": altitude_dict.get("pressure_altitude_ft"),
+						"density_altitude_m": altitude_dict.get("density_altitude_m"),
+						"density_altitude_ft": altitude_dict.get("density_altitude_ft"),
 					}
 					import json
 					yield f"data: {json.dumps(payload)}\n\n"
