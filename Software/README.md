@@ -1,21 +1,22 @@
 # High scalability framework Sensor monitoring system
 
 ## Outline
-透過使用 wurth EK 無線電模組搭配 IPC 通訊，框架不限制使用4G, RF，顯示方式不限制Web or app
+主要以框架的思維角度設計，以IPC作為核心通訊框架  
+加上log系統輔助紀錄   
+增強框架下車輛動態監測系統維護性並降低升級難度
 
 
 ## Requirements
-| 元件 | 說明 |
-|------|------|
-| **Python** ≥ 3.8 | 已在 Raspberry Pi OS (Bullseye/Bookworm) 測試 |
-| **pyserial** | 串口通訊模組 |
-| **pyzmq** | ZeroMQ 通訊框架 |
-| **Flask** | Web 儀表板後端 |
-| (選用) **Chart.js** | 前端即時圖表顯示 |
+
+## Installation
+```bash
+pip install zmq
+pip install pyserial
+```
 
 ## Usage
 ```bash
-python3 main.py
+python3 launch.py
 ```
 
 ## TODO
@@ -29,4 +30,4 @@ python3 main.py
 ## TL;DR
 高擴展性的車輛動態監測系統，使用IPC
 
-**最後更新**：2025 年 10 月
+**最後更新**：2025/10/31
