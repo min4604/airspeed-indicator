@@ -46,13 +46,6 @@
       "length": 2,
       "byte_order": "big",
       "unit": "°C"
-    },
-    {
-      "name": "trans_quene",
-      "offset": 16,
-      "length": 1,
-      "byte_order": "big",
-      "unit": "frames"
     }
   ]
 }

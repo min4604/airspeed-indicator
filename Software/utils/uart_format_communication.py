@@ -6,12 +6,6 @@ try:
 except ModuleNotFoundError:
     from log import Logger_tool
 
-
-# 初始化logger
-logger = Logger_tool.init_logger(log_file="a.log")
-filename = os.path.basename(__file__)
-logger.debug(f"{filename} logger Initialization")
-
 def decode_packet(packet: bytes, json_path="./Software/utils/uart_format.json") -> dict:
     """根據 JSON 格式自動解碼 UART 封包"""
     with open(json_path, "r", encoding="utf-8") as f:

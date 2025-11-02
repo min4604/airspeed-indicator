@@ -7,17 +7,29 @@
 
 
 ## Requirements
-
+- OS: Raspbian
+- Device: RPI4
 ## Installation
+請先安裝miniconda
 ```bash
-pip install zmq
-pip install pyserial
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
+bash ~/Miniconda3-latest-Linux-aarch64.sh
+```
+安裝所需套件
+```bash
+pip install zmq pyserial
 ```
 
-## Usage
+## Usage  
+1. 移動到專案資料夾  
+```bash
+cd ./Software/
+```
+2. 啟動控制台
 ```bash
 python3 launch.py
 ```
+3. 按下`q`結束
 
 ## TODO
 - [ ] main.py
@@ -26,6 +38,8 @@ python3 launch.py
 - [ ] IPC通道訂閱與發布
 - [ ] UI 發布
 - [ ] Logging系統
+- [ ] 驗證RPI5相容性
+- [ ] known issue: windows環境下`p.terminate()`會強制退出子程序
 
 ## TL;DR
 高擴展性的車輛動態監測系統，使用IPC

@@ -10,7 +10,7 @@ from utils.uart_format_communication import decode_packet
 
 def main():
     # 初始化logger
-    logger = Logger_tool.init_logger(log_file="a.log")
+    logger = Logger_tool.init_logger(log_file="console.log")
     filename = os.path.basename(__file__)
     logger.debug(f"{filename} logger Initialization")
 
@@ -29,12 +29,14 @@ def main():
             
             decoded = decode_packet(fake_packet)
             socket.send_json(decoded)
-            logger.info(f"[ZMQ] broadcast message success {decoded}")
+            logger.info(f"[ZMQ] broadcast message success")
             time.sleep(1) 
     except KeyboardInterrupt:
+        logger.warning("[ZMQ] socket close")
         socket.close()    
-        ctx.term()       
+        ctx.term()   
         logger.warning("[ZMQ] program stop")
+        exit(0)
 
 
 
