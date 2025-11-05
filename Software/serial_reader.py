@@ -5,6 +5,7 @@ import time
 import zmq
 
 from utils.log import Logger_tool
+from utils.fake_tty_trans import generate_fake_packet
 from utils.uart_format_communication import decode_packet
 
 
@@ -24,7 +25,8 @@ def main():
             
             # TODO: 等待 pyserial 硬體測試
             # testbench START
-            fake_packet = bytes.fromhex("02 00 0F 68 00 44 00 12 34 56 78 9A 0A 0B 1C 2D")
+            json_file = "./Software/utils/uart_format.json"
+            fake_packet = generate_fake_packet(json_file)
             # testbench END
             
             decoded = decode_packet(fake_packet)
