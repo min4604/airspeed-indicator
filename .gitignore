@@ -1,6 +1,10 @@
 # For PCBs designed using KiCad: https://www.kicad.org/
 # Format documentation: https://kicad.org/help/file-formats/
 
+# python 
+*.pyc
+*.ipc
+*.log
 # Temporary files
 *.000
 *.bak
