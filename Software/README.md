@@ -27,7 +27,7 @@ cd ./Software/
 ```
 2. 啟動控制台
 ```bash
-python3 launch.py
+python3 launcher.py
 ```
 3. 按下`q`結束
 

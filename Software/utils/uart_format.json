@@ -14,35 +14,35 @@
     },
     {
       "name": "HIDS_Humidity",
-      "offset": 5,
+      "offset": 6,
       "length": 2,
       "byte_order": "big",
       "unit": "%"
     },
     {
       "name": "PADS_Pressure",
-      "offset": 7,
+      "offset": 9,
       "length": 3,
       "byte_order": "big",
       "unit": "kPa"
     },
     {
       "name": "PADS_Temp",
-      "offset": 10,
+      "offset": 12,
       "length": 2,
       "byte_order": "little",
       "unit": "°C"
     },
     {
       "name": "PDUS_DiffPressure",
-      "offset": 12,
+      "offset": 14,
       "length": 2,
       "byte_order": "big",
       "unit": "Pa"
     },
     {
       "name": "PDUS_Temp",
-      "offset": 14,
+      "offset": 16,
       "length": 2,
       "byte_order": "big",
       "unit": "°C"
