@@ -1,0 +1,51 @@
+{
+  "protocol": {
+    "header": [2, 0],
+    "length_index": 2,
+    "data_offset": 3
+  },
+  "fields": [
+    {
+      "name": "HIDS_Temp",
+      "offset": 3,
+      "length": 2,
+      "byte_order": "big",
+      "unit": "°C"
+    },
+    {
+      "name": "HIDS_Humidity",
+      "offset": 6,
+      "length": 2,
+      "byte_order": "big",
+      "unit": "%"
+    },
+    {
+      "name": "PADS_Pressure",
+      "offset": 9,
+      "length": 3,
+      "byte_order": "big",
+      "unit": "kPa"
+    },
+    {
+      "name": "PADS_Temp",
+      "offset": 12,
+      "length": 2,
+      "byte_order": "little",
+      "unit": "°C"
+    },
+    {
+      "name": "PDUS_DiffPressure",
+      "offset": 14,
+      "length": 2,
+      "byte_order": "big",
+      "unit": "Pa"
+    },
+    {
+      "name": "PDUS_Temp",
+      "offset": 16,
+      "length": 2,
+      "byte_order": "big",
+      "unit": "°C"
+    }
+  ]
+}
